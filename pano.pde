@@ -19,23 +19,16 @@ boolean vertical = false;
 float videoFullDuration = 0;
 float videoFrameDuration = .04;
 int videoFrameCount = 0;
-//
 int videoHeight;
 int videoWidth;
-//
 int finalImageWidth = 900;
 int finalImageHeight = 0;
-//
 int imageCount = 0;
 int currentImage = 0;
-//
-//
 int currentLine = 0;
-//
 int xPosition, yPosition;
-//
 PImage destinationImage;
-//
+
 void setup() {
   video = new Movie(this,videoFileName);
   video.jump(0);
@@ -51,7 +44,6 @@ void setup() {
  
   frame.setResizable(true);
   size(picker.width,picker.height,P2D); 
-  //background(0);
   videoFullDuration = video.duration();
   videoFrameCount = floor(videoFullDuration * 24);
   imageCount = ceil(videoFrameCount/finalImageWidth);
@@ -59,12 +51,10 @@ void setup() {
   println("Images:"+imageCount);
   println("movie duration:" + video.duration());
   destinationImage = createImage(finalImageWidth,finalImageHeight,RGB);
- 
   fontA = loadFont("garamond.vlw");
   textFont(fontA, 32);
 }
-//
-//
+
 void draw() {
   if(!running) {
     video.stop();
@@ -88,11 +78,8 @@ void draw() {
     frame.setSize(finalImageWidth,finalImageHeight);
     videoHeight = video.height;
     videoWidth = video.width;
- 
     if(video.time() >= video.duration()) running = false;
- 
     println(video.duration() + " " + video.time());
- 
     background(0);
     if(running) {
       if(horizontal) {
